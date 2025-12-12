@@ -1,7 +1,6 @@
 from tkinter import *
 
 
-root = Tk()
 
 def insert():
     text = name_entry.get()
@@ -14,12 +13,14 @@ def backspace():
     name_entry.delete(len(name_entry.get())-1,
                       END)
 
+root = Tk()
+root.geometry('786x100')
       
 name_entry = Entry()
 name_entry.grid(row=0, column=0)
 #name_entry.insert(0, "Name")
 name_entry.config(fg='#00ff00', bg='#111111',
-                  font=('Ink Free', 28), width='50')
+                  font=('Ink Free', 28), width='20')
 
 print_button = Button(text="Print", bg='#00ff00', fg='#111111',
                       width='10', padx='5', pady='5', command=insert)
