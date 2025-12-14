@@ -1,17 +1,17 @@
-from pytube import YouTube
+import yt_dlp as yd
 
 def download_video(url, save_path):
-    try:
-        yt = YouTube(url)
+        video = {
+            'output' : './',
+            'format' : 'mp4'
+            }
+        with yd.YoutubeDL(video) as ydl:
+            ydl.download(url)
 
-        stream = yt.streams.get_highest_resolution()
-        stream.download(output_path=save_path)
-
-        print("Video Downloaded Successfully")
-    except Exception as e:
-        print("Error:", e)
-
+        
+        
 # IMPORTANT: use clean video URL (no &list=)
+
 url = "https://www.youtube.com/watch?v=zT7niRUOs9o"
 save_path = "./"
 
